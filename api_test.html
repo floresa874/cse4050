@@ -6,16 +6,14 @@
   <div id = "sunset">this is a div element </div>
   
 <script>
-  const url = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&formatted=0";
-  function cb2(data){
-    console.log(data.results.sunrise);
-  }
-  function cb1(response){
-    const p2 = response.json();
-    p2.then(cb2);
-  }
-  const p1 = fetch(url);
-  p1.then(cb1);
+  fetch("https://api.sunrise-sunset.org/json?lat=33.942467&lng=-117.2296750&formatted=0")
+  .then(response => response.json())
+  .then(data => {
+    const d = new Date(data.results.sunrise);
+    document.getElementById("sunset").innerHTML = 
+      "Sunrise today in Moreno Valley is " +
+      d.getHours() + ':' +  d.getMinutes() + ' AM';
+  });
   //document.getElementById("sunset").innerHTML = "This is a test";
 </script>
 </body
