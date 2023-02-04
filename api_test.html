@@ -11,7 +11,7 @@
     console.log(data);
   }
   function cb1(response){
-    const p2 = response.json();
+    const p2 = response.text;
     p2.then(cb2);
   }
   const p1 = fetch(url);
