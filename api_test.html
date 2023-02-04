@@ -8,10 +8,10 @@
 <script>
   const url = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&formatted=0";
   function cb2(data){
-    console.log(data);
+    console.log(data.results.sunrise);
   }
   function cb1(response){
-    const p2 = response.text();
+    const p2 = response.json();
     p2.then(cb2);
   }
   const p1 = fetch(url);
